@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% block title %} Flix careers | Subscribe {% endblock title %}
+{% block content %}
+<section>
+  <div class="container">
+      <form class="email-form" method="POST">
+        {% csrf_token %} 
+        {{InputForm.as_p}}
+      <button class="email-submit">Submit</button>
+</div>
+  </div>
+</section>
+{% endblock content %}
+
+{% comment %} 
+
+<p>
+  <label for="id_first_name">Enter First Name:</label>
+  <input type="text" name="first_name" maxlength="100" required id="id_first_name">
+</p>
+<p>
+  <label for="id_last_name">Enter Last Name:</label>
+  <input type="text" name="last_name" maxlength="100" required id="id_last_name">
+</p>
+<p>
+  <label for="id_email">Enter Email:</label>
+  <input type="email" name="email" maxlength="100" required id="id_email"> 
+</p>
+<p>
+  <label for="id_option">Option:</label>
+  <select name="option" id="id_option">
+<option value="W">Weekly</option>
+<option value="M" selected>Monthly</option>
+</select>
+</p>
+ {% endcomment %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscribe Form</title>
+    <link rel="stylesheet" type="text/css" href = "{% static 'subscribe/main.css' %}">  </link>
+
+
+  </head>
+
+  <body>
+    <h1> <img src="{% static 'subscribe/email-icon.png' %}" alt="Subscribe" >Subscribe Form </h1>
+    <form action="#" method="POST">
+      {% csrf_token %} 
+    
+      {% comment %} {% for field in InputForm %}
+      {{field.errors}}
+      <div class="subscribe_field">
+     <label for "{{field.id_for_label}}"> </label>
+       {{field.label}} {{field}} 
+      </div>
+      {%endfor %}  
+      {{InputForm.as_p}}
+      <input type="submit" value="Submit" />
+    </form>
+
+    <button onclick ="popup()" > Click Me!</button>
+    <script src = "{% static 'subscribe/main.js' %}"> </script>
+  </body>
+</html> {% endcomment %}
+
+{% comment %}
+<form method="post">
+  {% csrf_token %} {{ InputForm.as_p }}
+  <!-- Render the form fields -->
+
+  <!-- Display any errors -->
+  {% for field in InputForm %} {% if field.errors %}
+  <div class="error">
+    {% for error in field.errors %}
+    <p>{{ error }}</p>
+    {% endfor %}
+  </div>
+  {% endif %} {% endfor %}
+
+  <button type="submit">Subscribe</button>
+</form>
+{% endcomment %} {% comment %} ---- {% endcomment %} {% comment%}
+{{InputForm.as_p}} {% csrf_token %} {{InputForm.as_table}} {% csrf_token %}
+{{InputForm.as_ul}}
+<div class="subscribe_field">
+  {{ InputForm.firstName.errors}}
+
+  <label for="{{InputForm.firstName.id_for_label}}">
+    {{InputForm.firstName.label}}</label
+  >
+  {{ InputForm.firstName }}
+</div>
+<div class="subscribe_field">
+  {{ InputForm.lastName.errors }}
+
+  <label for="{{InputForm.lastName.id_for_label}}">
+    {{InputForm.lastName.label}}</label
+  >
+  {{ InputForm.lastName }}
+</div>
+<div class="subscribe_field">
+  {{ InputForm.emailId.errors }}
+
+  <label for="{{InputForm.emailId.id_for_label}}">
+    {{InputForm.emailId.label}}</label
+  >
+  {{ InputForm.emailId }}
+</div>
+{%endcomment %} {% comment %} {% for field in Inputform %}
+<div class="subscribe_field">
+  {% comment %} {{field.errors}} {{field.label_tag}} {{field}} {% {% {% comment
+  %} endcomment %} {{ field.errors}}
+  <label for="{{field.id_for_label}}"> {{field.label}} </label>
+
+  {{field}}
+</div>
+
+{% endfor %} {% endcomment %} {% comment %}
+<form action="#" method="POST">
+  {% csrf_token %} {% if emailErrorEmpty %}
+  <p>{{emailErrorEmpty}}</p>
+  {% endif %}
+  <label for="firstName">First Name:</label>
+  <input
+    type="text"
+    id="firstName"
+    name="firstName"
+    placeholder="enter your first name"
+    required
+  /><br /><br />
+
+  <label for="lastName">Last Name:</label>
+  <input
+    type="text"
+    id="lastName"
+    name="lastName"
+    placeholder="enter your last name"
+    required
+  /><br /><br />
+
+  <label for="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="enter your Email Address"
+  /><br /><br />
+
+  <input type="submit" value="Submit" />
+</form>
+{% endcomment %}
+
+{% comment %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <title>Subscribe </title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <div class="logo">
+            <img src="{% static 'app/logo.svg' %}" alt="" />
+          </div>
+          <div class="links">
+            <a href= "{% url 'jobs_home' %}">Home</a>
+          </div>
+          <span class="material-icons menu" onclick="menu()"> menu </span>
+        </div>
+      </nav>
+    </header>
+    
+    <script src="{% static 'app/app.js' %}"></script>
+  </body>
+</html> {% endcomment %}

@@ -1,0 +1,14 @@
+<h1>Hello {{name}}</h1>
+<h2>{{ items.0}}</h2>
+<h2>{{tempObject.x}}</h2>
+<h3>{{age}}</h3>
+{%if isAuthenticated%}
+<h1>hai Login Successful...</h1>
+{%else%}
+<h1>hai Guest Login Successful...</h1>
+{% endif %} {%for item in items%}
+<h4>{{item}}</h4>
+{% endfor %}
+
+<h1>Length : {{name | length}}</h1>
+{% comment "First Comment " %} Leanring material {% endcomment %}
